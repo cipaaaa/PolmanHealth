@@ -16,7 +16,7 @@ class KonfirmasiAntreanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_konfirmasi_antrean)
+        setContentView(R.layout.activity_konfirmasi)
 
         tvNomorAntrean = findViewById(R.id.tvNomorAntrean)
         tvTanggal = findViewById(R.id.tvTanggal)

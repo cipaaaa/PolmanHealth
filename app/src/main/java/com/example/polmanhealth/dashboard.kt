@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 
 class dashboard : AppCompatActivity() {
 
@@ -17,28 +18,20 @@ class dashboard : AppCompatActivity() {
         findViewById<TextView>(R.id.tvNamaUser).text = "Halo, $nama 👋"
         findViewById<TextView>(R.id.tvStatusUser).text = "Masyarakat Umum"
 
-        val menuForm = findViewById<LinearLayout>(R.id.menuFormAntrean)
-        val menuJadwal = findViewById<LinearLayout>(R.id.menuJadwal)
-        val menuRiwayat = findViewById<LinearLayout>(R.id.menuRiwayat)
-        val menuProfil = findViewById<LinearLayout>(R.id.menuProfil)
-
-        menuForm.setOnClickListener {
-            menuForm.setBackgroundResource(R.drawable.bg_menu_active)
-            startActivity(Intent(this, form_antrean::class.java))
+        findViewById<LinearLayout>(R.id.menuFormAntrean).setOnClickListener {
+            startActivity(Intent(this, FormAntreanActivity::class.java))
         }
 
-        menuJadwal.setOnClickListener {
-            menuJadwal.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.menuJadwal).setOnClickListener {
             startActivity(Intent(this, jadwal::class.java))
         }
 
-        menuRiwayat.setOnClickListener {
-            menuRiwayat.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.menuRiwayat).setOnClickListener {
             startActivity(Intent(this, riwayat::class.java))
         }
 
-        menuProfil.setOnClickListener {
-            menuProfil.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.menuProfil).setOnClickListener {
+            Toast.makeText(this, "Fitur profil belum tersedia", Toast.LENGTH_SHORT).show()
         }
 
         findViewById<TextView>(R.id.navHome).setOnClickListener {
@@ -51,7 +44,7 @@ class dashboard : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
-            startActivity(Intent(this, form_antrean::class.java))
+            startActivity(Intent(this, FormAntreanActivity::class.java))
         }
 
         findViewById<TextView>(R.id.navRiwayat).setOnClickListener {

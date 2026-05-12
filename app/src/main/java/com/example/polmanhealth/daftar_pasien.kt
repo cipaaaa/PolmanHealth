@@ -39,7 +39,7 @@ class daftar_pasien : AppCompatActivity() {
     }
 
     private fun bukaInputDiagnosa(nama: String, antrean: String) {
-        val intent = Intent(this, input_diagnosa::class.java)
+        val intent = Intent(this, InputDiagnosaActivity::class.java)
         intent.putExtra("nama_pasien", nama)
         intent.putExtra("nomor_antrean", antrean)
         startActivity(intent)

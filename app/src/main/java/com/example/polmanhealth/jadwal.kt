@@ -22,7 +22,7 @@ class jadwal : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
-            startActivity(Intent(this, form_antrean::class.java))
+            startActivity(Intent(this, FormAntreanActivity::class.java))
             finish()
         }
 

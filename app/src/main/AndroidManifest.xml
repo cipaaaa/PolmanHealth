@@ -11,15 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PolmanHealth">
+
+        <activity android:name=".daftar_obat" />
+        <activity android:name=".dashboard_admin" />
+        <activity android:name=".InputDiagnosaActivity" />
+        <activity android:name=".daftar_pasien" />
+        <activity android:name=".KonfirmasiAntreanActivity" />
+        <activity android:name=".FormAntreanActivity" />
+        <activity android:name=".detail_resep" />
+        <activity android:name=".riwayat" />
+        <activity android:name=".jadwal" />
+        <activity android:name=".dashboard" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
