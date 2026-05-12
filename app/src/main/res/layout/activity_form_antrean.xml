@@ -1,6 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#DFF7EE"
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_phone_card">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="22dp"
+            android:background="@drawable/bg_header_form">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="‹"
+                android:textColor="#FFFFFF"
+                android:textSize="42sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Form Antrean"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_marginStart="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ⓘ"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <!-- CONTENT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Waktu"
+                android:textColor="#08785B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSlotInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Silakan pilih jam antrean"
+                android:textColor="#7DA194"
+                android:textSize="16sp" />
+
+            <!-- JAM -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutJam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnJam0800"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/bg_time_outline"
+                        android:gravity="center"
+                        android:text="08:00"
+                        android:textColor="#346C57"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnJam0900"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_active"
+                        android:gravity="center"
+                        android:text="09:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnJam1000"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_outline"
+                        android:gravity="center"
+                        android:text="10:00"
+                        android:textColor="#346C57"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnJam1100"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_outline"
+                        android:gravity="center"
+                        android:text="11:00"
+                        android:textColor="#346C57"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnJam1300"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_outline"
+                        android:gravity="center"
+                        android:text="13:00"
+                        android:textColor="#346C57"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnJam1400"
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_outline"
+                        android:gravity="center"
+                        android:text="14:00"
+                        android:textColor="#346C57"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:text="Pilih Tanggal"
+                android:textColor="#08785B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- KALENDER ASLI -->
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_calendar"
+                android:firstDayOfWeek="2" />
+
+            <!-- HASIL PILIHAN -->
+            <TextView
+                android:id="@+id/tvTanggalTerpilih"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_selected_date"
+                android:gravity="center"
+                android:text="🗓   Jumat, 15 Maret 2024 ·\n09:00"
+                android:textColor="#08785B"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- BUTTON AMBIL ANTREAN -->
+            <TextView
+                android:id="@+id/btnAmbilAntrean"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_ambil_antrean"
+                android:elevation="6dp"
+                android:gravity="center"
+                android:text="Ambil Antrean"
+                android:textColor="#111111"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- BOTTOM NAV -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="⌂\nBeranda"
+                android:textColor="#0B8A68"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="▣\nJadwal"
+                android:textColor="#9FC8B8"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvNomorBottom"
+                android:layout_width="76dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="#012"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:background="@drawable/bg_queue_active" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="□\nRiwayat"
+                android:textColor="#9FC8B8"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="♙\nProfil"
+                android:textColor="#9FC8B8"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

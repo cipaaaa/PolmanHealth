@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFF7EE"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_phone_card">
+
+            <!-- HEADER -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="22dp"
+                android:paddingEnd="8dp"
+                android:background="@drawable/bg_header_form">
+
+                <TextView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="‹"
+                    android:textColor="#FFFFFF"
+                    android:textSize="42sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Konfirmasi Antrean"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="21sp"
+                    android:layout_marginStart="14dp" />
+            </LinearLayout>
+
+            <!-- CONTENT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <TextView
+                    android:layout_width="105dp"
+                    android:layout_height="105dp"
+                    android:background="@drawable/bg_circle_success"
+                    android:elevation="8dp"
+                    android:gravity="center"
+                    android:text="✓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Antrean Berhasil!"
+                    android:textColor="#18382F"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="Notifikasi akan dikirim saat giliran&#10;kamu mendekat"
+                    android:textColor="#7DA194"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- DETAIL CARD -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/bg_detail_card"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/bg_detail_header"
+                        android:gravity="center_vertical"
+                        android:paddingStart="22dp"
+                        android:text="Detail Antrean"
+                        android:textColor="#08785B"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="22dp">
+
+                        <!-- NOMOR ANTREAN -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Nomor Antrean"
+                                android:textColor="#7DA194"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/tvNomorAntrean"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="#A-013"
+                                android:textColor="#159A67"
+                                android:textSize="34sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- TANGGAL -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="▣  Tanggal"
+                                android:textColor="#56796D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvTanggal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Jumat, 15 Maret 2024"
+                                android:textColor="#18382F"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- WAKTU -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="◷  Waktu"
+                                android:textColor="#56796D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvWaktu"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="09:00 WIB"
+                                android:textColor="#18382F"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- POLI -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="⌂  Poli"
+                                android:textColor="#56796D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPoli"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Poli Umum"
+                                android:textColor="#18382F"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- PASIEN -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="♙  Pasien"
+                                android:textColor="#56796D"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPasien"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ahmad · 2103401"
+                                android:textColor="#18382F"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- WARNING -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_warning_card"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:text="⚠   Harap hadir 15 menit sebelum&#10;waktu antrean. Antrean&#10;hangus jika tidak hadir."
+                    android:textColor="#805A00"
+                    android:textSize="15sp" />
+
+                <!-- BUTTON -->
+                <TextView
+                    android:id="@+id/btnKembaliBeranda"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_ambil_antrean"
+                    android:elevation="6dp"
+                    android:gravity="center"
+                    android:text="⌂  Kembali ke Beranda"
+                    android:textColor="#111111"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- BOTTOM NAV -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="⌂&#10;Beranda"
+                    android:textColor="#9FC8B8"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="▣&#10;Jadwal"
+                    android:textColor="#9FC8B8"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvBottomAntrean"
+                    android:layout_width="76dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="#013"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:background="@drawable/bg_queue_active" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="□&#10;Riwayat"
+                    android:textColor="#9FC8B8"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="♙&#10;Profil"
+                    android:textColor="#9FC8B8"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

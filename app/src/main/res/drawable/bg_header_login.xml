@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#DFF7EE"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_login_card">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="#32C28D">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="‹"
+                android:textSize="38sp"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Form Antrean"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ⓘ"
+                android:textSize="24sp"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Waktu"
+                    android:textColor="#08785B"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slot tersedia hari ini"
+                    android:textColor="#7DA194"
+                    android:textSize="15sp"
+                    android:layout_marginTop="6dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="14dp">
+
+                    <TextView
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:text="08:00"
+                        android:textStyle="bold"
+                        android:textColor="#346C57"
+                        android:background="@drawable/bg_time_outline" />
+
+                    <TextView
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:text="09:00"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_active" />
+
+                    <TextView
+                        android:layout_width="82dp"
+                        android:layout_height="45dp"
+                        android:gravity="center"
+                        android:text="10:00"
+                        android:textStyle="bold"
+                        android:textColor="#346C57"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_time_outline" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Tanggal"
+                    android:textColor="#08785B"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginTop="34dp" />
+
+                <!-- KALENDER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_calendar"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:gravity="center"
+                        android:text="‹        Maret 2024        ›"
+                        android:textColor="#08785B"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:background="#D8F6EA" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="7"
+                        android:padding="14dp">
+
+                        <!-- isi kalender singkat -->
+                        <TextView android:text="Mo" style="@style/CalendarDay"/>
+                        <TextView android:text="Tu" style="@style/CalendarDay"/>
+                        <TextView android:text="We" style="@style/CalendarDay"/>
+                        <TextView android:text="Th" style="@style/CalendarDay"/>
+                        <TextView android:text="Fr" style="@style/CalendarDay"/>
+                        <TextView android:text="Sa" style="@style/CalendarDay"/>
+                        <TextView android:text="Su" style="@style/CalendarDay"/>
+
+                        <TextView android:text="" style="@style/CalendarNum"/>
+                        <TextView android:text="" style="@style/CalendarNum"/>
+                        <TextView android:text="" style="@style/CalendarNum"/>
+                        <TextView android:text="" style="@style/CalendarNum"/>
+                        <TextView android:text="1" style="@style/CalendarNum"/>
+                        <TextView android:text="2" style="@style/CalendarNum"/>
+                        <TextView android:text="3" style="@style/CalendarNum"/>
+
+                        <TextView android:text="4" style="@style/CalendarNum"/>
+                        <TextView android:text="5" style="@style/CalendarNum"/>
+                        <TextView android:text="6" style="@style/CalendarNum"/>
+                        <TextView android:text="7" style="@style/CalendarNum"/>
+                        <TextView android:text="8" style="@style/CalendarNum"/>
+                        <TextView android:text="9" style="@style/CalendarNum"/>
+                        <TextView android:text="10" style="@style/CalendarNum"/>
+
+                        <TextView android:text="11" style="@style/CalendarNum"/>
+                        <TextView android:text="12" style="@style/CalendarNum"/>
+                        <TextView android:text="13" style="@style/CalendarNum"/>
+                        <TextView android:text="14" style="@style/CalendarNum"/>
+                        <TextView android:text="15" style="@style/CalendarActive"/>
+                        <TextView android:text="16" style="@style/CalendarNum"/>
+                        <TextView android:text="17" style="@style/CalendarNum"/>
+                    </GridLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:text="🗓  Jumat, 15 Maret 2024 · 09:00"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#08785B"
+                    android:background="@drawable/bg_selected_date"
+                    android:layout_marginTop="16dp" />
+
+                <Button
+                    android:id="@+id/btnAmbilAntrean"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:text="Ambil\nAntrean"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#111111"
+                    android:backgroundTint="#FFFFFF"
+                    android:layout_marginTop="24dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- BOTTOM BAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#FFFFFF">
+
+            <TextView style="@style/MenuItem" android:text="⌂\nBeranda"/>
+            <TextView style="@style/MenuItem" android:text="▣\nJadwal"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="#012"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:background="@drawable/bg_time_active" />
+
+            <TextView style="@style/MenuItem" android:text="□\nRiwayat"/>
+            <TextView style="@style/MenuItem" android:text="♙\nProfil"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
