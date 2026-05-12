@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFF7EE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="28dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_login_card"
+            android:padding="24dp"
+            android:layout_marginTop="18dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:src="@drawable/whatsapp_image_2026_05_12_at_17_10_19"
+                android:background="@drawable/bg_header_login"
+                android:padding="25dp"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buat Akun"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#18382F"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar akun PolmanHealth+ kamu"
+                android:textSize="14sp"
+                android:textColor="#6FA08F"
+                android:layout_gravity="center"
+                android:layout_marginTop="6dp" />
+
+            <!-- Nama -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Lengkap"
+                android:textStyle="bold"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:layout_marginTop="22dp" />
+
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan nama lengkap"
+                android:textColor="#18382F"
+                android:textColorHint="#A7C5B9"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_login_input"
+                android:layout_marginTop="6dp" />
+
+            <!-- Password -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kata Sandi"
+                android:textStyle="bold"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan kata sandi"
+                android:inputType="textPassword"
+                android:textColor="#18382F"
+                android:textColorHint="#A7C5B9"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_login_input"
+                android:layout_marginTop="6dp" />
+
+            <!-- Alamat -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textStyle="bold"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:hint="Masukkan alamat"
+                android:gravity="top"
+                android:padding="16dp"
+                android:background="@drawable/bg_login_input"
+                android:textColor="#18382F"
+                android:textColorHint="#A7C5B9"
+                android:layout_marginTop="6dp" />
+
+            <!-- No Telp -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Telepon"
+                android:textStyle="bold"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etNoTelp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="08xxxxxxxxxx"
+                android:inputType="phone"
+                android:textColor="#18382F"
+                android:textColorHint="#A7C5B9"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_login_input"
+                android:layout_marginTop="6dp" />
+
+            <!-- Button -->
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Daftar"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#72D8B4"
+                android:layout_marginTop="28dp"/>
+
+            <TextView
+                android:id="@+id/tvToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah punya akun? Masuk"
+                android:textColor="#0B8A68"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

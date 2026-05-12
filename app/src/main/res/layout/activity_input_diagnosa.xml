@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="22dp"
+            android:background="@drawable/bg_header_form">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="‹"
+                android:textColor="#FFFFFF"
+                android:textSize="42sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Input Diagnosa"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_marginStart="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Pasien"
+                android:textColor="#08785B"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Pasien"
+                    android:textColor="#7DA194"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNamaPasien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Ahmad"
+                    android:textColor="#18382F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="Nomor Antrean"
+                    android:textColor="#7DA194"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNomorAntrean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#A-013"
+                    android:textColor="#159A67"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Diagnosa"
+                android:textColor="#08785B"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtDiagnosa"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:gravity="top"
+                android:hint="Masukkan hasil diagnosa pasien"
+                android:padding="16dp"
+                android:textColor="#18382F"
+                android:textColorHint="#8AA79C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Resep Obat"
+                android:textColor="#08785B"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtNamaObat"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:hint="Nama obat"
+                android:padding="14dp" />
+
+            <EditText
+                android:id="@+id/edtJenisObat"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:hint="Jenis obat, contoh: Tablet / Kapsul"
+                android:padding="14dp" />
+
+            <EditText
+                android:id="@+id/edtAturanMinum"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:hint="Aturan minum, contoh: 3x1 hari"
+                android:padding="14dp" />
+
+            <Spinner
+                android:id="@+id/spinnerKeterangan"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_detail_card"
+                android:padding="14dp" />
+
+            <Button
+                android:id="@+id/btnTambahObat"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#159A67"
+                android:text="Tambah Obat"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutListObat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#08785B"
+                android:text="Simpan Diagnosa"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
