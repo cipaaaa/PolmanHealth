@@ -12,28 +12,23 @@ class daftar_pasien : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daftar_pasien)
 
-        val namaDokter = intent.getStringExtra("nama_dokter") ?: "Dokter"
-        val poli = intent.getStringExtra("poli") ?: "Umum"
+        val namaAdmin = intent.getStringExtra("nama_admin") ?: "Admin"
+        findViewById<TextView>(R.id.tvNamaAdmin).text = "Halo, $namaAdmin 👋"
 
-        findViewById<TextView>(R.id.tvNamaDokter).text = "Halo, $namaDokter 👋"
-        findViewById<TextView>(R.id.tvPoliDokter).text = "Daftar pasien Poli $poli"
+        findViewById<TextView>(R.id.btnBack).setOnClickListener {
+            startActivity(Intent(this, dashboard_admin::class.java))
+            finish()
+        }
 
-        val pasien1 = findViewById<LinearLayout>(R.id.cardPasien1)
-        val pasien2 = findViewById<LinearLayout>(R.id.cardPasien2)
-        val pasien3 = findViewById<LinearLayout>(R.id.cardPasien3)
-
-        pasien1.setOnClickListener {
-            pasien1.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.cardPasien1).setOnClickListener {
             bukaInputDiagnosa("Ahmad Rizki", "#A-012")
         }
 
-        pasien2.setOnClickListener {
-            pasien2.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.cardPasien2).setOnClickListener {
             bukaInputDiagnosa("Naila Maharani", "#A-013")
         }
 
-        pasien3.setOnClickListener {
-            pasien3.setBackgroundResource(R.drawable.bg_menu_active)
+        findViewById<LinearLayout>(R.id.cardPasien3).setOnClickListener {
             bukaInputDiagnosa("Diva Putri", "#A-014")
         }
     }
