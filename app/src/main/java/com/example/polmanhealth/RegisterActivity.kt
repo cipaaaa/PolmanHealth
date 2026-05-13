@@ -1,75 +1,89 @@
 package com.example.polmanhealth
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+import com.example.polmanhealth.api.RetrofitClient
+import com.example.polmanhealth.model.PasienResponse
+import com.example.polmanhealth.model.RegisterRequest
+
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 class RegisterActivity : AppCompatActivity() {
-
-    private lateinit var etNama: EditText
-    private lateinit var etPasswordRegister: EditText
-    private lateinit var etAlamat: EditText
-    private lateinit var etNoTelp: EditText
-
-    private lateinit var btnRegister: Button
-    private lateinit var tvToLogin: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        etNama = findViewById(R.id.etNama)
-        etPasswordRegister = findViewById(R.id.etPasswordRegister)
-        etAlamat = findViewById(R.id.etAlamat)
-        etNoTelp = findViewById(R.id.etNoTelp)
+        val etNama = findViewById<EditText>(R.id.etNama)
+        val etEmail = findViewById<EditText>(R.id.etEmail)
+        val etPassword = findViewById<EditText>(R.id.etPasswordRegister)
+        val etNoTelp = findViewById<EditText>(R.id.etNoTelp)
+        val etAlamat = findViewById<EditText>(R.id.etAlamat)
 
-        btnRegister = findViewById(R.id.btnRegister)
-        tvToLogin = findViewById(R.id.tvToLogin)
+        val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
 
-            val nama = etNama.text.toString()
-            val password = etPasswordRegister.text.toString()
-            val alamat = etAlamat.text.toString()
-            val noTelp = etNoTelp.text.toString()
-
-            if (nama.isEmpty() ||
-                password.isEmpty() ||
-                alamat.isEmpty() ||
-                noTelp.isEmpty()
-            ) {
-
-                Toast.makeText(
-                    this,
-                    "Semua data harus diisi",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            } else {
-
-                Toast.makeText(
-                    this,
-                    "Registrasi berhasil",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                val intent = Intent(this, LoginActivity::class.java)
-
-                intent.putExtra("nama", nama)
-
-                startActivity(intent)
-                finish()
-            }
-        }
-
-        tvToLogin.setOnClickListener {
-
-            startActivity(
-                Intent(this, LoginActivity::class.java)
+            val request = RegisterRequest(
+                nama_pasien = etNama.text.toString(),
+                email = etEmail.text.toString(),
+                password = etPassword.text.toString(),
+                no_telp = etNoTelp.text.toString(),
+                alamat = etAlamat.text.toString()
             )
 
-            finish()
+            RetrofitClient.instance.registerPasien(request)
+                .enqueue(object : Callback<PasienResponse> {
+
+                    override fun onResponse(
+                        call: Call<PasienResponse>,
+                        response: Response<PasienResponse>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                "Register Berhasil",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        } else {
+
+                            Log.d(
+                                "API_ERROR",
+                                response.errorBody()?.string().toString()
+                            )
+
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                "Register Gagal",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onFailure(
+                        call: Call<PasienResponse>,
+                        t: Throwable
+                    ) {
+
+                        Log.d("API_FAILURE", t.message.toString())
+
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            t.message,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                })
         }
     }
 }
