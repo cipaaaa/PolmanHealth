@@ -19,12 +19,12 @@
             android:layout_marginTop="18dp">
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="304dp"
                 android:layout_height="115dp"
-                android:src="@drawable/whatsapp_image_2026_05_12_at_17_10_19"
                 android:background="@drawable/bg_header_login"
                 android:padding="25dp"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"
+                android:src="@drawable/whatsapp_image_2026_05_12_at_17_10_19" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +67,29 @@
                 android:paddingEnd="16dp"
                 android:background="@drawable/bg_login_input"
                 android:layout_marginTop="6dp" />
+            <!-- EMAIL -->
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Masukkan email"
+                android:inputType="textEmailAddress"
+                android:textColor="#18382F"
+                android:textColorHint="#A7C5B9"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_login_input"
+                android:layout_marginTop="6dp" />
             <!-- Password -->
 
             <TextView

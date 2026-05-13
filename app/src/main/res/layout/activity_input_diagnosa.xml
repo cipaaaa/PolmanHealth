@@ -134,24 +134,6 @@
                 android:hint="Nama obat"
                 android:padding="14dp" />
 
-            <EditText
-                android:id="@+id/edtJenisObat"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
-                android:hint="Jenis obat, contoh: Tablet / Kapsul"
-                android:padding="14dp" />
-
-            <EditText
-                android:id="@+id/edtAturanMinum"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
-                android:hint="Aturan minum, contoh: 3x1 hari"
-                android:padding="14dp" />
-
             <Spinner
                 android:id="@+id/spinnerKeterangan"
                 android:layout_width="match_parent"
@@ -164,24 +146,17 @@
                 android:id="@+id/btnTambahObat"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="6dp"
                 android:backgroundTint="#159A67"
                 android:text="Tambah Obat"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:id="@+id/layoutListObat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:orientation="vertical" />
-
             <Button
                 android:id="@+id/btnSimpan"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="6dp"
                 android:backgroundTint="#08785B"
                 android:text="Simpan Diagnosa"
                 android:textColor="#FFFFFF"

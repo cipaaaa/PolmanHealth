@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7F8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profil Saya"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1E1E1E"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Foto Profil -->
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_profile"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_profile_circle"
+            android:padding="8dp" />
+
+        <!-- Nama -->
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ahmad Fauzan"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <!-- Nomor Pasien -->
+        <TextView
+            android:id="@+id/tvNomorPasien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Pasien: 2103401"
+            android:textSize="14sp"
+            android:textColor="#777777"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Card Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_profile"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textColor="#346C57" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ahmad@email.com"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor HP"
+                android:textStyle="bold"
+                android:textColor="#346C57" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08123456789"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:textStyle="bold"
+                android:textColor="#346C57" />
+
+            <EditText
+                android:id="@+id/etAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="Bandung, Jawa Barat"
+                android:textColor="#444444"
+                android:textSize="15sp"
+                android:paddingTop="4dp"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:gravity="top|start"/>
+
+        </LinearLayout>
+
+        <!-- Tombol -->
+        <TextView
+            android:id="@+id/btnEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profil"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_button_green" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Email dan password harus diisi", Toast.LENGTH_SHORT).show()
             } else {
-                val intent = Intent(this, DashboardActivity::class.java)
+                val intent = Intent(this, dashboard::class.java)
                 intent.putExtra("emailPasien", email)
                 startActivity(intent)
                 finish()
