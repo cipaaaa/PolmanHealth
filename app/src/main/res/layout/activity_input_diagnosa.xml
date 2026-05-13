@@ -1,166 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#CFF4E5"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F1FFF8"
         android:orientation="vertical">
 
+        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="78dp"
+            android:layout_height="96dp"
+            android:background="#20A174"
             android:gravity="center_vertical"
-            android:paddingStart="24dp"
-            android:paddingEnd="22dp"
-            android:background="@drawable/bg_header_form">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="10dp">
 
+            <!-- BACK -->
             <TextView
                 android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="‹"
                 android:textColor="#FFFFFF"
-                android:textSize="42sp" />
+                android:textSize="48sp" />
 
-            <TextView
+            <!-- TITLE -->
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_weight="1"
-                android:text="Input Diagnosa"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                android:layout_marginStart="14dp" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Input Diagnosa"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="15 Mar 2024"
+                    android:textColor="#DFF7EE"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- ICON -->
+
         </LinearLayout>
 
+        <!-- CONTENT -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="22dp">
+            android:padding="20dp">
 
+            <!-- CARD PASIEN -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_card_white"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_circle_avatar"
+                    android:gravity="center"
+                    android:text="AH"
+                    android:textColor="#08785B"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvNamaPasien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ahmad Hidayat"
+                        android:textColor="#1E1E1E"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvNimPasien"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NIM: 2103401"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvNomorAntrean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:background="@drawable/bg_badge"
+                    android:gravity="center"
+                    android:paddingHorizontal="13dp"
+                    android:text="Antrean #3"
+                    android:textColor="#08785B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- DIAGNOSA -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data Pasien"
+                android:layout_marginTop="20dp"
+                android:text="DIAGNOSA"
                 android:textColor="#08785B"
-                android:textSize="20sp"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_card_diagnosa"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <EditText
+                    android:id="@+id/edtDiagnosa"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Diagnosa pasien"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edtKodeIcd"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Kode ICD-10"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edtCatatanDiagnosa"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_login_input"
+                    android:gravity="top"
+                    android:hint="Catatan diagnosa..."
+                    android:padding="14dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- INPUT OBAT -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="INPUT OBAT"
+                android:textColor="#08785B"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <EditText
+                    android:id="@+id/edtNamaObat"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Nama obat"
+                    android:paddingHorizontal="14dp" />
+
+                <EditText
+                    android:id="@+id/edtJenisObat"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Jenis obat"
+                    android:paddingHorizontal="14dp" />
+
+                <EditText
+                    android:id="@+id/edtFrekuensi"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Frekuensi minum (3x1)"
+                    android:paddingHorizontal="14dp" />
+
+                <EditText
+                    android:id="@+id/edtLamaMinum"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_login_input"
+                    android:hint="Lama minum (7 hari)"
+                    android:paddingHorizontal="14dp" />
+
+                <!-- ATURAN MINUM -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="ATURAN MINUM"
+                    android:textColor="#08785B"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnSesudahMakan"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/bg_rule_selected"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:text="☼  Sesudah makan\n\nSetelah makan utama"
+                        android:textColor="#1E1E1E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnSebelumMakan"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/bg_rule_normal"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:text="☾  Sebelum makan\n\n30 menit sebelum makan"
+                        android:textColor="#1E1E1E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- BUTTON TAMBAH -->
+                <TextView
+                    android:id="@+id/btnTambahObat"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_button_dashed"
+                    android:gravity="center"
+                    android:text="+ Tambah Obat"
+                    android:textColor="#17A779"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- LIST RESEP -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="RESEP OBAT"
+                android:textColor="#08785B"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layoutListObat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_card_white"
                 android:orientation="vertical"
                 android:padding="18dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvKosongObat"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nama Pasien"
-                    android:textColor="#7DA194"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvNamaPasien"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Ahmad"
-                    android:textColor="#18382F"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:text="Nomor Antrean"
-                    android:textColor="#7DA194"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvNomorAntrean"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="#A-013"
-                    android:textColor="#159A67"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:text="Belum ada obat ditambahkan"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Diagnosa"
-                android:textColor="#08785B"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtDiagnosa"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
-                android:gravity="top"
-                android:hint="Masukkan hasil diagnosa pasien"
-                android:padding="16dp"
-                android:textColor="#18382F"
-                android:textColorHint="#8AA79C" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Resep Obat"
-                android:textColor="#08785B"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/edtNamaObat"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
-                android:hint="Nama obat"
-                android:padding="14dp" />
-
-            <Spinner
-                android:id="@+id/spinnerKeterangan"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_detail_card"
-                android:padding="14dp" />
-
-            <Button
-                android:id="@+id/btnTambahObat"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="6dp"
-                android:backgroundTint="#159A67"
-                android:text="Tambah Obat"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
+            <!-- BUTTON -->
             <Button
                 android:id="@+id/btnSimpan"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="6dp"
-                android:backgroundTint="#08785B"
-                android:text="Simpan Diagnosa"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="#20A174"
+                android:text="▣ Simpan Diagnosa"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="14dp" />
 
         </LinearLayout>
     </LinearLayout>

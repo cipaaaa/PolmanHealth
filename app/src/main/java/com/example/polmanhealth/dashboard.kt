@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.Toast
 
 class dashboard : AppCompatActivity() {
 
@@ -18,29 +17,30 @@ class dashboard : AppCompatActivity() {
         findViewById<TextView>(R.id.tvNamaUser).text = "Halo, $nama 👋"
         findViewById<TextView>(R.id.tvStatusUser).text = "Masyarakat Umum"
 
+        // MENU GRID (Sesuaikan dengan nama di Manifest)
         findViewById<LinearLayout>(R.id.menuFormAntrean).setOnClickListener {
             startActivity(Intent(this, FormAntreanActivity::class.java))
         }
 
         findViewById<LinearLayout>(R.id.menuJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java))
+            startActivity(Intent(this, jadwal::class.java)) // GANTI: JadwalActivity -> jadwal
         }
 
         findViewById<LinearLayout>(R.id.menuRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java))
+            startActivity(Intent(this, riwayat::class.java)) // GANTI: RiwayatActivity -> riwayat
         }
 
         findViewById<LinearLayout>(R.id.menuProfil).setOnClickListener {
-            Toast.makeText(this, "Fitur profil belum tersedia", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
+        // BOTTOM NAV (Navigasi Bawah)
         findViewById<TextView>(R.id.navHome).setOnClickListener {
-            startActivity(Intent(this, dashboard::class.java))
-            finish()
+            // Sudah di home
         }
 
         findViewById<TextView>(R.id.navJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java))
+            startActivity(Intent(this, jadwal::class.java)) // GANTI: JadwalActivity -> jadwal
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
@@ -48,7 +48,11 @@ class dashboard : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.navRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java))
+            startActivity(Intent(this, riwayat::class.java)) // GANTI: RiwayatActivity -> riwayat
+        }
+
+        findViewById<TextView>(R.id.navProfil).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 }

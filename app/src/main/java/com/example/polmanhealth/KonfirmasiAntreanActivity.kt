@@ -1,5 +1,6 @@
 package com.example.polmanhealth
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +12,8 @@ class KonfirmasiAntreanActivity : AppCompatActivity() {
     private lateinit var tvWaktu: TextView
     private lateinit var tvPoli: TextView
     private lateinit var tvPasien: TextView
-    private lateinit var tvBottomAntrean: TextView
     private lateinit var btnKembaliBeranda: TextView
+    private lateinit var btnBack: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +24,9 @@ class KonfirmasiAntreanActivity : AppCompatActivity() {
         tvWaktu = findViewById(R.id.tvWaktu)
         tvPoli = findViewById(R.id.tvPoli)
         tvPasien = findViewById(R.id.tvPasien)
-        tvBottomAntrean = findViewById(R.id.tvBottomAntrean)
+
         btnKembaliBeranda = findViewById(R.id.btnKembaliBeranda)
+        btnBack = findViewById(R.id.btnBack)
 
         val nomorAntrean = intent.getStringExtra("nomorAntrean") ?: "#A-013"
         val tanggal = intent.getStringExtra("tanggal") ?: "Jumat, 15 Maret 2024"
@@ -38,9 +40,17 @@ class KonfirmasiAntreanActivity : AppCompatActivity() {
         tvWaktu.text = waktu
         tvPoli.text = poli
         tvPasien.text = "$namaPasien · $nomorPasien"
-        tvBottomAntrean.text = nomorAntrean.replace("#A-", "#")
 
+        // BACK (kiri atas) → balik ke halaman sebelumnya
+        btnBack.setOnClickListener {
+            finish()
+        }
+
+        // BUTTON → balik ke dashboard
         btnKembaliBeranda.setOnClickListener {
+            val intent = Intent(this, dashboard::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
             finish()
         }
     }

@@ -1,44 +1,66 @@
 package com.example.polmanhealth
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.polmanhealth.R
+
 class InputDiagnosaActivity : AppCompatActivity() {
 
     private lateinit var edtDiagnosa: EditText
+    private lateinit var edtKodeIcd: EditText
+    private lateinit var edtCatatanDiagnosa: EditText
+    
     private lateinit var edtNamaObat: EditText
     private lateinit var edtJenisObat: EditText
-    private lateinit var edtAturanMinum: EditText
-    private lateinit var spinnerKeterangan: Spinner
-    private lateinit var btnTambahObat: Button
+    private lateinit var edtFrekuensi: EditText
+    private lateinit var edtLamaMinum: EditText
+    
+    private lateinit var btnSesudahMakan: TextView
+    private lateinit var btnSebelumMakan: TextView
+    private lateinit var btnTambahObat: TextView
     private lateinit var btnSimpan: Button
     private lateinit var layoutListObat: LinearLayout
+    private lateinit var tvKosongObat: TextView
 
     private val listObat = ArrayList<String>()
+    private var aturanMinumTerpilih = "Sesudah Makan"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_input_diagnosa)
 
+        // Binding Diagnosa
         edtDiagnosa = findViewById(R.id.edtDiagnosa)
+        edtKodeIcd = findViewById(R.id.edtKodeIcd)
+        edtCatatanDiagnosa = findViewById(R.id.edtCatatanDiagnosa)
+
+        // Binding Obat
         edtNamaObat = findViewById(R.id.edtNamaObat)
         edtJenisObat = findViewById(R.id.edtJenisObat)
-        edtAturanMinum = findViewById(R.id.edtAturanMinum)
-        spinnerKeterangan = findViewById(R.id.spinnerKeterangan)
+        edtFrekuensi = findViewById(R.id.edtFrekuensi)
+        edtLamaMinum = findViewById(R.id.edtLamaMinum)
+        
+        btnSesudahMakan = findViewById(R.id.btnSesudahMakan)
+        btnSebelumMakan = findViewById(R.id.btnSebelumMakan)
         btnTambahObat = findViewById(R.id.btnTambahObat)
         btnSimpan = findViewById(R.id.btnSimpan)
         layoutListObat = findViewById(R.id.layoutListObat)
+        tvKosongObat = findViewById(R.id.tvKosongObat)
 
-        val pilihanKeterangan = arrayOf("Sebelum Makan", "Sesudah Makan")
+        // Logic Aturan Minum Selection
+        btnSesudahMakan.setOnClickListener {
+            aturanMinumTerpilih = "Sesudah Makan"
+            btnSesudahMakan.setBackgroundResource(R.drawable.bg_rule_selected)
+            btnSebelumMakan.setBackgroundResource(R.drawable.bg_rule_normal)
+        }
 
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            pilihanKeterangan
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerKeterangan.adapter = adapter
+        btnSebelumMakan.setOnClickListener {
+            aturanMinumTerpilih = "Sebelum Makan"
+            btnSebelumMakan.setBackgroundResource(R.drawable.bg_rule_selected)
+            btnSesudahMakan.setBackgroundResource(R.drawable.bg_rule_normal)
+        }
 
         btnTambahObat.setOnClickListener {
             tambahObat()
@@ -55,26 +77,34 @@ class InputDiagnosaActivity : AppCompatActivity() {
                 Toast.makeText(this, "Diagnosa dan resep berhasil disimpan", Toast.LENGTH_SHORT).show()
             }
         }
+
+        findViewById<TextView>(R.id.btnBack).setOnClickListener {
+            finish()
+        }
     }
 
     private fun tambahObat() {
         val namaObat = edtNamaObat.text.toString()
         val jenisObat = edtJenisObat.text.toString()
-        val aturanMinum = edtAturanMinum.text.toString()
-        val keterangan = spinnerKeterangan.selectedItem.toString()
+        val frekuensi = edtFrekuensi.text.toString()
+        val lamaMinum = edtLamaMinum.text.toString()
 
-        if (namaObat.isEmpty() || jenisObat.isEmpty() || aturanMinum.isEmpty()) {
+        if (namaObat.isEmpty() || jenisObat.isEmpty() || frekuensi.isEmpty() || lamaMinum.isEmpty()) {
             Toast.makeText(this, "Data obat harus lengkap", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val dataObat = "$namaObat\n$jenisObat\n$aturanMinum\n$keterangan"
+        val aturanLengkap = "$frekuensi, $lamaMinum"
+        val dataObat = "$namaObat\n$jenisObat\n$aturanLengkap\n$aturanMinumTerpilih"
         listObat.add(dataObat)
 
+        // Hide empty message if there are medications
+        tvKosongObat.visibility = View.GONE
+
         val cardObat = TextView(this)
-        cardObat.text = "💊  $namaObat\n$jenisObat\nAturan: $aturanMinum\n$keterangan"
+        cardObat.text = "💊  $namaObat\n$jenisObat\nAturan: $aturanLengkap\n$aturanMinumTerpilih"
         cardObat.textSize = 15f
-        cardObat.setTextColor(android.graphics.Color.parseColor("#18382F"))
+        cardObat.setTextColor(Color.parseColor("#18382F"))
         cardObat.setPadding(24, 20, 24, 20)
         cardObat.setBackgroundResource(R.drawable.bg_obat_card)
 
@@ -87,9 +117,10 @@ class InputDiagnosaActivity : AppCompatActivity() {
 
         layoutListObat.addView(cardObat)
 
+        // Reset Medication Form
         edtNamaObat.text.clear()
         edtJenisObat.text.clear()
-        edtAturanMinum.text.clear()
-        spinnerKeterangan.setSelection(0)
+        edtFrekuensi.text.clear()
+        edtLamaMinum.text.clear()
     }
 }

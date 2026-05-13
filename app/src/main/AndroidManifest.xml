@@ -24,6 +24,8 @@
         <activity android:name=".dashboard" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" />
+        
 
         <activity
             android:name=".splash"

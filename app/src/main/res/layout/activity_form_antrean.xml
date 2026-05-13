@@ -201,10 +201,10 @@
         <!-- BOTTOM NAVIGATION -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:orientation="horizontal"
+            android:layout_height="86dp"
+            android:background="#FFFFFF"
             android:gravity="center"
-            android:background="#FFFFFF">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/navHome"
@@ -212,9 +212,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="⌂\nBeranda"
-                android:textColor="#0B8A68"
-                android:textSize="13sp" />
+                android:text="🏠\nBeranda"
+                android:textColor="#168B68"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/navJadwal"
@@ -222,20 +223,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="▣\nJadwal"
-                android:textColor="#9FC8B8"
-                android:textSize="13sp" />
+                android:text="📅\nJadwal"
+                android:textColor="#A9C9BD"
+                android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/tvNomorBottom"
-                android:layout_width="76dp"
-                android:layout_height="50dp"
+                android:id="@+id/navAntrean"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_nav_circle"
                 android:gravity="center"
-                android:text="#012"
+                android:text="#012\nAntrean"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textSize="22sp"
-                android:background="@drawable/bg_queue_active" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/navRiwayat"
@@ -243,9 +245,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="□\nRiwayat"
-                android:textColor="#9FC8B8"
-                android:textSize="13sp" />
+                android:text="📁\nRiwayat"
+                android:textColor="#A9C9BD"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/navProfil"
@@ -253,9 +255,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="♙\nProfil"
-                android:textColor="#9FC8B8"
-                android:textSize="13sp" />
+                android:text="👤\nProfil"
+                android:textColor="#A9C9BD"
+                android:textSize="12sp" />
         </LinearLayout>
 
     </LinearLayout>

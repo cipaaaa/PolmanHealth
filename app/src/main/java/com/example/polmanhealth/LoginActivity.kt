@@ -2,7 +2,10 @@ package com.example.polmanhealth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -22,14 +25,25 @@ class LoginActivity : AppCompatActivity() {
         tvToRegister = findViewById(R.id.tvToRegister)
 
         btnLogin.setOnClickListener {
-            val email = etLoginEmail.text.toString()
-            val password = etLoginPassword.text.toString()
+            val email = etLoginEmail.text.toString().trim().lowercase()
+            val password = etLoginPassword.text.toString().trim()
 
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Email dan password harus diisi", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (email == "admin@gmail.com" && password == "admin123") {
+                Toast.makeText(this, "Login sebagai Admin", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, dashboard_admin::class.java)
+                startActivity(intent)
+                finish()
             } else {
-                val intent = Intent(this, DashboardActivity::class.java)
-                intent.putExtra("emailPasien", email)
+                Toast.makeText(this, "Login sebagai User", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, dashboard::class.java)
+                intent.putExtra("nama", "Ahmad")
                 startActivity(intent)
                 finish()
             }
