@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_profile"
             android:scaleType="centerCrop"
-            android:background="@drawable/bg_profile_circle"
+            android:background="@drawable/profile_icon_png_910"
             android:padding="8dp" />
 
         <!-- Nama -->
@@ -44,15 +44,6 @@
             android:layout_marginTop="16dp" />
 
         <!-- Nomor Pasien -->
-        <TextView
-            android:id="@+id/tvNomorPasien"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No Pasien: 2103401"
-            android:textSize="14sp"
-            android:textColor="#777777"
-            android:layout_gravity="center"
-            android:layout_marginBottom="32dp" />
 
         <!-- Card Info -->
         <LinearLayout
@@ -126,6 +117,18 @@
             android:padding="16dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/bg_button_green" />
+
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_red" />
 
     </LinearLayout>
 
