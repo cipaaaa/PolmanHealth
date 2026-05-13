@@ -7,6 +7,12 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.polmanhealth.api.RetrofitClient
+import com.example.polmanhealth.model.AdminLoginResponse
+import com.example.polmanhealth.model.LoginResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
 
@@ -33,24 +39,94 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (email == "admin@gmail.com" && password == "admin123") {
-                Toast.makeText(this, "Login sebagai Admin", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, dashboard_admin::class.java)
-                startActivity(intent)
-                finish()
+            if (email == "admin@gmail.com") {
+                loginAdmin(email, password)
             } else {
-                Toast.makeText(this, "Login sebagai User", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, dashboard::class.java)
-                intent.putExtra("nama", "Ahmad")
-                startActivity(intent)
-                finish()
+                loginPasien(email, password)
             }
         }
 
         tvToRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+    }
+
+    private fun loginPasien(email: String, password: String) {
+        RetrofitClient.instance.loginPasien(email, password)
+            .enqueue(object : Callback<LoginResponse> {
+                override fun onResponse(
+                    call: Call<LoginResponse>,
+                    response: Response<LoginResponse>
+                ) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val pasien = response.body()!!
+
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Login berhasil: ${pasien.nama_pasien}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@LoginActivity, dashboard::class.java)
+                        intent.putExtra("id_pasien", pasien.id_pasien)
+                        intent.putExtra("nama_pasien", pasien.nama_pasien)
+                        intent.putExtra("email", pasien.email)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Email atau password pasien salah",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Gagal konek ke server: ${t.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
+
+    private fun loginAdmin(email: String, password: String) {
+        RetrofitClient.instance.loginAdmin(email, password)
+            .enqueue(object : Callback<AdminLoginResponse> {
+                override fun onResponse(
+                    call: Call<AdminLoginResponse>,
+                    response: Response<AdminLoginResponse>
+                ) {
+                    if (response.isSuccessful && response.body() != null) {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Login admin berhasil",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        val intent = Intent(this@LoginActivity, dashboard_admin::class.java)
+                        intent.putExtra("email", response.body()!!.email)
+                        intent.putExtra("role", response.body()!!.role)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Email atau password admin salah",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<AdminLoginResponse>, t: Throwable) {
+                    Toast.makeText(
+                        this@LoginActivity,
+                        "Gagal konek ke server: ${t.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
     }
 }
