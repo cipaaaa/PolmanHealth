@@ -25,12 +25,6 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ⓘ"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp" />
     </LinearLayout>
 
     <ScrollView
@@ -95,6 +89,27 @@
                     android:textColor="#08785B"
                     android:textColorHint="#7DA194"
                     android:textSize="16sp" />
+
+
+
+                <!-- PILIH TANGGAL -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:text="Pilih Tanggal"
+                    android:textColor="#08785B"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- CALENDAR -->
+                <CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_calendar"
+                    android:firstDayOfWeek="2" />
 
                 <!-- PILIH WAKTU -->
                 <TextView
@@ -200,25 +215,6 @@
                             android:textStyle="bold" />
                     </LinearLayout>
                 </HorizontalScrollView>
-
-                <!-- PILIH TANGGAL -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="34dp"
-                    android:text="Pilih Tanggal"
-                    android:textColor="#08785B"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <!-- CALENDAR -->
-                <CalendarView
-                    android:id="@+id/calendarView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_calendar"
-                    android:firstDayOfWeek="2" />
 
                 <!-- HASIL -->
                 <TextView

@@ -40,17 +40,6 @@
             android:paddingBottom="24dp">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:background="@drawable/bg_search"
-                android:gravity="center_vertical"
-                android:paddingLeft="18dp"
-                android:text="⌕  Cari berdasarkan tanggal..."
-                android:textColor="#9DB9AF"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MARET 2024"

@@ -12,6 +12,8 @@ import retrofit2.http.Query
 
 interface ApiService {
 
+
+
     @POST("pasien/register")
     fun registerPasien(
         @Body request: RegisterRequest
@@ -28,4 +30,6 @@ interface ApiService {
         @Query("email") email: String,
         @Query("password") password: String
     ): Call<AdminLoginResponse>
+
+
 }

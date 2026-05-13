@@ -22,8 +22,81 @@
             android:textColor="#FFFFFF"
             android:textSize="27sp"
             android:textStyle="bold" />
-
     </LinearLayout>
+
+    <!-- HARI -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/layoutHari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnSenin"
+                android:layout_width="82dp"
+                android:layout_height="45dp"
+                android:background="@drawable/bg_time_outline"
+                android:gravity="center"
+                android:text="Senin"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnSelasa"
+                android:layout_width="82dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_time_active"
+                android:gravity="center"
+                android:text="Selasa"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnRabu"
+                android:layout_width="82dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_time_outline"
+                android:gravity="center"
+                android:text="Rabu"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnKamis"
+                android:layout_width="82dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_time_outline"
+                android:gravity="center"
+                android:text="Kamis"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnJumat"
+                android:layout_width="82dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_time_outline"
+                android:gravity="center"
+                android:text="Jumat"
+                android:textColor="#346C57"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <!-- CONTENT -->
     <ScrollView
@@ -41,18 +114,6 @@
             android:orientation="vertical"
             android:paddingTop="18dp"
             android:paddingBottom="24dp">
-
-            <!-- SEARCH -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:background="@drawable/bg_search"
-                android:gravity="center_vertical"
-                android:paddingLeft="18dp"
-                android:text="⌕  Cari nama dokter atau poli..."
-                android:textColor="#9DB9AF"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
             <!-- DOKTER 1 -->
             <LinearLayout
@@ -82,6 +143,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaDokter1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ahmad-Idar, MG."
@@ -90,6 +152,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtSpesialis1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -106,15 +169,14 @@
                         android:background="#E3F4ED" />
 
                     <TextView
+                        android:id="@+id/txtJam1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="◷ 08:00–12:00"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- DOKTER 2 -->
@@ -145,6 +207,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaDokter2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ana, San, MS."
@@ -153,6 +216,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtSpesialis2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -169,15 +233,14 @@
                         android:background="#E3F4ED" />
 
                     <TextView
+                        android:id="@+id/txtJam2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="◷ 08:00–12:00"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- DOKTER 3 -->
@@ -208,6 +271,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaDokter3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Harrir Sandia, UD."
@@ -216,6 +280,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtSpesialis3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -232,15 +297,14 @@
                         android:background="#E3F4ED" />
 
                     <TextView
+                        android:id="@+id/txtJam3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="◷ 13:00–17:00"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- DOKTER 4 -->
@@ -271,6 +335,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaDokter4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Drs. Indanoet, MS."
@@ -279,6 +344,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtSpesialis4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -295,15 +361,14 @@
                         android:background="#E3F4ED" />
 
                     <TextView
+                        android:id="@+id/txtJam4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="◷ 08:00–12:00"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- DOKTER 5 -->
@@ -334,6 +399,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/txtNamaDokter5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mto. Samlit"
@@ -342,6 +408,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txtSpesialis5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -358,19 +425,17 @@
                         android:background="#E3F4ED" />
 
                     <TextView
+                        android:id="@+id/txtJam5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="◷ 09:00–14:00"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>
-
     </ScrollView>
 
     <!-- BOTTOM BAR -->
@@ -428,8 +493,8 @@
             android:id="@+id/navProfil"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:gravity="center"
+            android:layout_weight="1"
             android:text="👤\nProfil"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
