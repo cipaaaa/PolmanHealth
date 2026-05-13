@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4FFFA"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <!-- LOGO ICON -->
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/icon"
+        android:scaleType="fitCenter" />
+
+    <!-- APP NAME -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:text="PolmanHealth+"
+        android:textColor="#168B68"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <!-- SUBTITLE -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Modern Health Clinic"
+        android:textColor="#5D786D"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Politeknik Manufaktur Negeri Bandung"
+        android:textColor="#8AA59A"
+        android:textSize="13sp" />
+
+    <!-- DOT -->
+
+</LinearLayout>
