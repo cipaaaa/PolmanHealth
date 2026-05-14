@@ -132,7 +132,7 @@
                     android:background="@drawable/bg_circle_photo"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/foto_dokter_1" />
+                    android:src="@drawable/foto_dokter_2" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -196,7 +196,7 @@
                     android:background="@drawable/bg_circle_photo"
                     android:clipToOutline="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/foto_dokter_2" />
+                    android:src="@drawable/foto_dokter_1" />
 
                 <LinearLayout
                     android:layout_width="0dp"

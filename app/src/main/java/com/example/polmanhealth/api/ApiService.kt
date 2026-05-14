@@ -4,11 +4,14 @@ import com.example.polmanhealth.model.PasienResponse
 import com.example.polmanhealth.model.RegisterRequest
 import com.example.polmanhealth.model.LoginResponse
 import com.example.polmanhealth.model.AdminLoginResponse
+import com.example.polmanhealth.model.JadwalHariResponse
 
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -31,5 +34,9 @@ interface ApiService {
         @Query("password") password: String
     ): Call<AdminLoginResponse>
 
+    @GET("jadwal-dokter/hari/{hari}")
+    fun getJadwalByHari(
+        @Path("hari") hari: String
+    ): Call<List<JadwalHariResponse>>
 
 }
