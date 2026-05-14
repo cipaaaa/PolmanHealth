@@ -111,24 +111,16 @@
                     android:background="@drawable/bg_calendar"
                     android:firstDayOfWeek="2" />
 
-                <!-- PILIH WAKTU -->
+                <!-- JAM PRAKTEK DOKTER -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:text="Pilih Waktu"
+                    android:text="Jam Praktek"
                     android:textColor="#08785B"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvSlotInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:text="Silakan pilih jam antrean"
-                    android:textColor="#7DA194"
-                    android:textSize="16sp" />
 
                 <!-- JAM -->
                 <HorizontalScrollView
@@ -156,63 +148,19 @@
 
                         <TextView
                             android:id="@+id/btnJam0900"
-                            android:layout_width="82dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="45dp"
                             android:layout_marginStart="12dp"
                             android:background="@drawable/bg_time_active"
                             android:gravity="center"
+                            android:paddingStart="24dp"
+                            android:paddingEnd="24dp"
                             android:text="09:00"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/btnJam1000"
-                            android:layout_width="82dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="12dp"
-                            android:background="@drawable/bg_time_outline"
-                            android:gravity="center"
-                            android:text="10:00"
-                            android:textColor="#346C57"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/btnJam1100"
-                            android:layout_width="82dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="12dp"
-                            android:background="@drawable/bg_time_outline"
-                            android:gravity="center"
-                            android:text="11:00"
-                            android:textColor="#346C57"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/btnJam1300"
-                            android:layout_width="82dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="12dp"
-                            android:background="@drawable/bg_time_outline"
-                            android:gravity="center"
-                            android:text="13:00"
-                            android:textColor="#346C57"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/btnJam1400"
-                            android:layout_width="82dp"
-                            android:layout_height="45dp"
-                            android:layout_marginStart="12dp"
-                            android:background="@drawable/bg_time_outline"
-                            android:gravity="center"
-                            android:text="14:00"
-                            android:textColor="#346C57"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
                 </HorizontalScrollView>
 

@@ -28,12 +28,12 @@ class KonfirmasiAntreanActivity : AppCompatActivity() {
         btnKembaliBeranda = findViewById(R.id.btnKembaliBeranda)
         btnBack = findViewById(R.id.btnBack)
 
-        val nomorAntrean = intent.getStringExtra("nomorAntrean") ?: "#A-013"
-        val tanggal = intent.getStringExtra("tanggal") ?: "Jumat, 15 Maret 2024"
-        val waktu = intent.getStringExtra("waktu") ?: "09:00 WIB"
-        val poli = intent.getStringExtra("poli") ?: "Poli Umum"
-        val namaPasien = intent.getStringExtra("namaPasien") ?: "Ahmad"
-        val nomorPasien = intent.getStringExtra("nomorPasien") ?: "2103401"
+        val nomorAntrean = intent.getStringExtra("nomorAntrean") ?: "-"
+        val tanggal = intent.getStringExtra("tanggal") ?: "-"
+        val waktu = intent.getStringExtra("waktu") ?: "-"
+        val poli = intent.getStringExtra("poli") ?: "-"
+        val namaPasien = intent.getStringExtra("namaPasien") ?: "Pasien"
+        val nomorPasien = intent.getStringExtra("nomorPasien") ?: "-"
 
         tvNomorAntrean.text = nomorAntrean
         tvTanggal.text = tanggal

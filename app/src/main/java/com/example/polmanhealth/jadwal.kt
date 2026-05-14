@@ -127,25 +127,37 @@ class jadwal : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val body = response.body!!.string()
+                val body = response.body?.string() ?: return
 
                 runOnUiThread {
-                    val jsonArray = JSONArray(body)
+                    try {
+                        val jsonArray = JSONArray(body)
 
-                    for (i in 0 until 5) {
-                        if (i < jsonArray.length()) {
-                            val item = jsonArray.getJSONObject(i)
+                        for (i in 0 until 5) {
+                            if (i < jsonArray.length()) {
+                                val item = jsonArray.getJSONObject(i)
 
-                            txtNamaDokter[i].text = item.getString("nama_dokter")
-                            txtSpesialis[i].text = item.getString("spesialis")
+                                if (item.has("nama_dokter")) {
+                                    txtNamaDokter[i].text = item.getString("nama_dokter")
+                                }
 
-                            val jamMulai = item.getString("jam_mulai").substring(0, 5)
-                            val jamSelesai = item.getString("jam_selesai").substring(0, 5)
+                                if (item.has("spesialis")) {
+                                    txtSpesialis[i].text = item.getString("spesialis")
+                                }
 
-                            txtJam[i].text = "◷ $jamMulai–$jamSelesai"
+                                val jamMulai = item.getString("jam_mulai").substring(0, 5)
+                                val jamSelesai = item.getString("jam_selesai").substring(0, 5)
+
+                                txtJam[i].text = "◷ $jamMulai–$jamSelesai"
+                            }
                         }
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
                 }
+
+
             }
         })
     }

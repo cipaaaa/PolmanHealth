@@ -61,6 +61,14 @@ class LoginActivity : AppCompatActivity() {
                     if (response.isSuccessful && response.body() != null) {
                         val pasien = response.body()!!
 
+                        val sharedPref = getSharedPreferences("USER_SESSION", MODE_PRIVATE)
+                        sharedPref.edit()
+                            .clear()
+                            .putInt("id_pasien", pasien.id_pasien)
+                            .putString("nama_pasien", pasien.nama_pasien)
+                            .putString("email", pasien.email)
+                            .apply()
+
                         Toast.makeText(
                             this@LoginActivity,
                             "Login berhasil: ${pasien.nama_pasien}",
@@ -68,17 +76,9 @@ class LoginActivity : AppCompatActivity() {
                         ).show()
 
                         val intent = Intent(this@LoginActivity, dashboard::class.java)
-                        intent.putExtra("id_pasien", pasien.id_pasien)
-                        intent.putExtra("nama_pasien", pasien.nama_pasien)
-                        intent.putExtra("email", pasien.email)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                         finish()
-                    } else {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Email atau password pasien salah",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
                 }
 

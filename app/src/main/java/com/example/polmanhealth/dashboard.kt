@@ -12,35 +12,34 @@ class dashboard : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
-        val nama = intent.getStringExtra("nama") ?: "Ahmad"
+        val sharedPref = getSharedPreferences("USER_SESSION", MODE_PRIVATE)
+        val nama = sharedPref.getString("nama_pasien", "Pasien")
 
         findViewById<TextView>(R.id.tvNamaUser).text = "Halo, $nama 👋"
         findViewById<TextView>(R.id.tvStatusUser).text = "Masyarakat Umum"
 
-        // MENU GRID (Sesuaikan dengan nama di Manifest)
         findViewById<LinearLayout>(R.id.menuFormAntrean).setOnClickListener {
             startActivity(Intent(this, FormAntreanActivity::class.java))
         }
 
         findViewById<LinearLayout>(R.id.menuJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java)) // GANTI: JadwalActivity -> jadwal
+            startActivity(Intent(this, jadwal::class.java))
         }
 
         findViewById<LinearLayout>(R.id.menuRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java)) // GANTI: RiwayatActivity -> riwayat
+            startActivity(Intent(this, riwayat::class.java))
         }
 
         findViewById<LinearLayout>(R.id.menuProfil).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        // BOTTOM NAV (Navigasi Bawah)
         findViewById<TextView>(R.id.navHome).setOnClickListener {
             // Sudah di home
         }
 
         findViewById<TextView>(R.id.navJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java)) // GANTI: JadwalActivity -> jadwal
+            startActivity(Intent(this, jadwal::class.java))
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
@@ -48,7 +47,7 @@ class dashboard : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.navRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java)) // GANTI: RiwayatActivity -> riwayat
+            startActivity(Intent(this, riwayat::class.java))
         }
 
         findViewById<TextView>(R.id.navProfil).setOnClickListener {

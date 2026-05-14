@@ -5,6 +5,7 @@ import com.example.polmanhealth.model.RegisterRequest
 import com.example.polmanhealth.model.LoginResponse
 import com.example.polmanhealth.model.AdminLoginResponse
 import com.example.polmanhealth.model.JadwalHariResponse
+import com.example.polmanhealth.model.DokterResponse
 
 import retrofit2.Call
 import retrofit2.http.Body
@@ -28,6 +29,7 @@ interface ApiService {
         @Query("password") password: String
     ): Call<LoginResponse>
 
+
     @POST("admin/login")
     fun loginAdmin(
         @Query("email") email: String,
@@ -38,5 +40,8 @@ interface ApiService {
     fun getJadwalByHari(
         @Path("hari") hari: String
     ): Call<List<JadwalHariResponse>>
+
+    @GET("dokter")
+    fun getAllDokter(): Call<List<DokterResponse>>
 
 }

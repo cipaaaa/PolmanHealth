@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Notifikasi akan dikirim saat giliran\nkamu mendekat"
+                    android:text="Mohon tunggu sampai dengan nomor antrian Anda dipanggil."
                     android:textColor="#7DA194"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -217,7 +217,7 @@
                             <TextView
                                 android:layout_width="120dp"
                                 android:layout_height="wrap_content"
-                                android:text="Pasien"
+                                android:text="Pasien-ID"
                                 android:textColor="#56796D"
                                 android:textSize="18sp"
                                 android:textStyle="bold" />
