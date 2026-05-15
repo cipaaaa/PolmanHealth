@@ -69,17 +69,28 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tvStatusAntrean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Antrean Aktif"
+                    android:text="Belum ada antrean"
                     android:textColor="#168B68"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvTanggalAntrean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15 Mar 2024\nPoli Umum"
+                    android:text="-"
+                    android:textColor="#6B7C73"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPoliAntrean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
                     android:textColor="#6B7C73"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -87,11 +98,11 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvNomorAntrian"
+                android:id="@+id/tvNomorAntreanAktif"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="#A-012"
+                android:text="-"
                 android:textColor="#168B68"
                 android:textSize="27sp"
                 android:textStyle="bold" />

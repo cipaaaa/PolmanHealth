@@ -6,6 +6,17 @@ import com.example.polmanhealth.model.LoginResponse
 import com.example.polmanhealth.model.AdminLoginResponse
 import com.example.polmanhealth.model.JadwalHariResponse
 import com.example.polmanhealth.model.DokterResponse
+import com.example.polmanhealth.model.PendaftaranRequest
+import com.example.polmanhealth.model.PendaftaranResponse
+import com.example.polmanhealth.model.AdminAntreanResponse
+import com.example.polmanhealth.model.RekamMedisRequest
+import com.example.polmanhealth.model.RekamMedisResponse
+import com.example.polmanhealth.model.RiwayatRekamMedisResponse
+import com.example.polmanhealth.model.ObatRequest
+import com.example.polmanhealth.model.ObatResponse
+import com.example.polmanhealth.model.DetailResepRequest
+import com.example.polmanhealth.model.DetailResepResponse
+import com.example.polmanhealth.model.DetailResepObatResponse
 
 import retrofit2.Call
 import retrofit2.http.Body
@@ -43,5 +54,43 @@ interface ApiService {
 
     @GET("dokter")
     fun getAllDokter(): Call<List<DokterResponse>>
+
+    @GET("pasien/{id_pasien}/antrean-aktif")
+    fun getAntreanAktif(
+        @Path("id_pasien") idPasien: Int
+    ): Call<PendaftaranResponse>
+
+    @POST("pendaftaran")
+    fun buatPendaftaran(
+        @Body request: PendaftaranRequest
+    ): Call<PendaftaranResponse>
+
+    @GET("admin/daftar-antrean")
+    fun getDaftarAntreanAdmin(): Call<List<AdminAntreanResponse>>
+
+    @POST("rekam-medis")
+    fun createRekamMedis(
+        @Body request: RekamMedisRequest
+    ): Call<RekamMedisResponse>
+
+    @GET("pasien/{id_pasien}/riwayat-rekam-medis")
+    fun getRiwayatRekamMedis(
+        @Path("id_pasien") idPasien: Int
+    ): Call<List<RiwayatRekamMedisResponse>>
+
+    @POST("obat/get-or-create")
+    fun getOrCreateObat(
+        @Body request: ObatRequest
+    ): Call<ObatResponse>
+
+    @POST("detail-resep")
+    fun createDetailResep(
+        @Body request: DetailResepRequest
+    ): Call<DetailResepResponse>
+
+    @GET("rekam-medis/{id_rekam_medis}/detail-resep")
+    fun getDetailResepByRekamMedis(
+        @Path("id_rekam_medis") idRekamMedis: Int
+    ): Call<List<DetailResepObatResponse>>
 
 }

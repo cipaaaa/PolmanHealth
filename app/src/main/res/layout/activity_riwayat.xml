@@ -39,15 +39,6 @@
             android:paddingTop="18dp"
             android:paddingBottom="24dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MARET 2024"
-                android:textColor="#08785B"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:layout_marginTop="18dp" />
-
             <LinearLayout
                 android:id="@+id/cardRiwayat1"
                 android:layout_width="match_parent"
@@ -75,26 +66,29 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvJudulRiwayat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ahmad-Idar, MG."
+                        android:text="Belum ada riwayat pemeriksaan"
                         android:textColor="#18382F"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvSubRiwayat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Poli Umum"
+                        android:text="-"
                         android:textColor="#7A9389"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:layout_marginTop="3dp" />
 
                     <TextView
+                        android:id="@+id/tvTanggalRiwayat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15 Mar 2024\n08:00–12:00"
+                        android:text="-"
                         android:textColor="#346C57"
                         android:textSize="13sp"
                         android:layout_marginTop="8dp" />
@@ -112,133 +106,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/cardRiwayat2"
-                android:layout_width="match_parent"
-                android:layout_height="145dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/bg_card_strong"
-                android:elevation="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_icon_green_light"
-                    android:gravity="center"
-                    android:text="🩺"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ana, San, MS."
-                        android:textColor="#18382F"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Poli Gigi"
-                        android:textColor="#7A9389"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="3dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10 Mar 2024\n08:00–12:00"
-                        android:textColor="#346C57"
-                        android:textSize="13sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btnLihat2"
-                    android:layout_width="70dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/bg_status_green"
-                    android:gravity="center"
-                    android:text="Lihat"
-                    android:textColor="#08785B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cardRiwayat3"
-                android:layout_width="match_parent"
-                android:layout_height="145dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/bg_card_strong"
-                android:elevation="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_icon_green_light"
-                    android:gravity="center"
-                    android:text="🩺"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Harrir Sandia, UD."
-                        android:textColor="#18382F"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Poli Mata"
-                        android:textColor="#7A9389"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="3dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="05 Mar 2024\n13:00–17:00"
-                        android:textColor="#346C57"
-                        android:textSize="13sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btnLihat3"
-                    android:layout_width="70dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/bg_status_green"
-                    android:gravity="center"
-                    android:text="Lihat"
-                    android:textColor="#08785B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

@@ -1,111 +1,162 @@
 package com.example.polmanhealth
 
-import android.content.ContentValues
-import android.content.Intent
-import android.graphics.Paint
-import android.graphics.pdf.PdfDocument
+import android.graphics.Color
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
+import android.view.Gravity
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.polmanhealth.api.RetrofitClient
+import com.example.polmanhealth.model.DetailResepObatResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class detail_resep : AppCompatActivity() {
+
+    private lateinit var layoutDetailResep: LinearLayout
+    private lateinit var tvKosongResep: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_resep)
 
-        val dokter = intent.getStringExtra("dokter") ?: "Ahmad-Idar, MG."
-        val tanggal = intent.getStringExtra("tanggal") ?: "15 Mar 2024"
+        val idRekamMedis = intent.getIntExtra("id_rekam_medis", 0)
+        val dokter = intent.getStringExtra("dokter") ?: "-"
+        val tanggal = intent.getStringExtra("tanggal") ?: "-"
         val status = intent.getStringExtra("status") ?: "Selesai"
+        val diagnosa = intent.getStringExtra("diagnosa") ?: "-"
+        val catatan = intent.getStringExtra("catatan") ?: "-"
+
+        layoutDetailResep = findViewById(R.id.layoutDetailResep)
+        tvKosongResep = findViewById(R.id.tvKosongResep)
 
         findViewById<TextView>(R.id.tvDokterDetail).text = dokter
         findViewById<TextView>(R.id.tvTanggalDetail).text = tanggal
         findViewById<TextView>(R.id.tvStatusDetail).text = status
 
-        findViewById<TextView>(R.id.btnBackDetail).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java))
-            finish()
-        }
+        findViewById<TextView>(R.id.tvDiagnosaDetail).text =
+            if (catatan != "-" && catatan.isNotEmpty()) {
+                catatan
+            } else {
+                diagnosa
+            }
 
-        findViewById<TextView>(R.id.btnDownloadPdf).setOnClickListener {
-            buatPdfResep(dokter, tanggal, status)
+        if (idRekamMedis != 0) {
+            loadDetailResep(idRekamMedis)
+        } else {
+            tvKosongResep.text = "ID rekam medis tidak ditemukan"
         }
     }
 
-    private fun buatPdfResep(dokter: String, tanggal: String, status: String) {
-        try {
-            val pdfDocument = PdfDocument()
-            val paint = Paint()
+    private fun loadDetailResep(idRekamMedis: Int) {
+        RetrofitClient.instance.getDetailResepByRekamMedis(idRekamMedis)
+            .enqueue(object : Callback<List<DetailResepObatResponse>> {
+                override fun onResponse(
+                    call: Call<List<DetailResepObatResponse>>,
+                    response: Response<List<DetailResepObatResponse>>
+                ) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val dataResep = response.body()!!
 
-            val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
-            val page = pdfDocument.startPage(pageInfo)
-            val canvas = page.canvas
+                        if (dataResep.isEmpty()) {
+                            tvKosongResep.visibility = View.VISIBLE
+                            tvKosongResep.text = "Belum ada resep obat"
+                        } else {
+                            tvKosongResep.visibility = View.GONE
+                            layoutDetailResep.removeAllViews()
 
-            paint.textSize = 22f
-            paint.isFakeBoldText = true
-            canvas.drawText("PolmanHealth+ - Detail Resep", 50f, 60f, paint)
-
-            paint.textSize = 15f
-            paint.isFakeBoldText = false
-            canvas.drawText("Tanggal: $tanggal", 50f, 105f, paint)
-            canvas.drawText("Dokter: $dokter", 50f, 130f, paint)
-            canvas.drawText("Status: $status", 50f, 155f, paint)
-
-            paint.textSize = 17f
-            paint.isFakeBoldText = true
-            canvas.drawText("Diagnosa", 50f, 205f, paint)
-
-            paint.textSize = 14f
-            paint.isFakeBoldText = false
-            canvas.drawText("Pengasaman lambung ringan, perlu pengobatan rutin", 50f, 235f, paint)
-            canvas.drawText("dan istirahat cukup selama pemulihan.", 50f, 255f, paint)
-
-            paint.textSize = 17f
-            paint.isFakeBoldText = true
-            canvas.drawText("Resep Obat", 50f, 315f, paint)
-
-            paint.textSize = 14f
-            paint.isFakeBoldText = false
-            canvas.drawText("1. Paracetamol - Tablet - 3x1 hari - Sesudah makan", 50f, 350f, paint)
-            canvas.drawText("2. Amoxicillin - Kapsul - 3x1 hari - Sesudah makan", 50f, 375f, paint)
-            canvas.drawText("3. Antasida - Tablet - 2x1 hari - Sebelum makan", 50f, 400f, paint)
-
-            paint.textSize = 12f
-            canvas.drawText("Dokumen ini dibuat otomatis oleh aplikasi PolmanHealth+.", 50f, 760f, paint)
-
-            pdfDocument.finishPage(page)
-
-            val fileName = "resep_polmanhealth_${System.currentTimeMillis()}.pdf"
-
-            val values = ContentValues().apply {
-                put(MediaStore.Downloads.DISPLAY_NAME, fileName)
-                put(MediaStore.Downloads.MIME_TYPE, "application/pdf")
-                put(MediaStore.Downloads.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
-            }
-
-            val uri = contentResolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)
-
-            if (uri != null) {
-                contentResolver.openOutputStream(uri).use { outputStream ->
-                    pdfDocument.writeTo(outputStream)
+                            dataResep.forEach { resep ->
+                                tambahCardObat(resep)
+                            }
+                        }
+                    } else {
+                        tvKosongResep.visibility = View.VISIBLE
+                        tvKosongResep.text = "Gagal mengambil resep"
+                    }
                 }
 
-                Toast.makeText(
-                    this,
-                    "PDF berhasil disimpan di folder Download",
-                    Toast.LENGTH_LONG
-                ).show()
-            } else {
-                Toast.makeText(this, "Gagal membuat file PDF", Toast.LENGTH_SHORT).show()
-            }
+                override fun onFailure(call: Call<List<DetailResepObatResponse>>, t: Throwable) {
+                    Toast.makeText(
+                        this@detail_resep,
+                        "Gagal terhubung ke server",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+    }
 
-            pdfDocument.close()
-
-        } catch (e: Exception) {
-            Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+    private fun tambahCardObat(resep: DetailResepObatResponse) {
+        val card = LinearLayout(this)
+        card.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            dpToPx(74)
+        ).apply {
+            bottomMargin = dpToPx(12)
         }
+
+        card.setBackgroundResource(R.drawable.bg_card_medicine)
+        card.gravity = Gravity.CENTER_VERTICAL
+        card.orientation = LinearLayout.HORIZONTAL
+        card.setPadding(dpToPx(14), 0, dpToPx(14), 0)
+
+        val icon = TextView(this)
+        icon.layoutParams = LinearLayout.LayoutParams(
+            dpToPx(38),
+            dpToPx(38)
+        )
+        icon.setBackgroundResource(R.drawable.bg_icon_green_light)
+        icon.gravity = Gravity.CENTER
+        icon.text = "💊"
+        icon.textSize = 18f
+
+        val obat = TextView(this)
+        obat.layoutParams = LinearLayout.LayoutParams(
+            0,
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            1f
+        ).apply {
+            leftMargin = dpToPx(12)
+        }
+        obat.text = "${resep.nama_obat}\n${resep.jenis_obat}"
+        obat.setTextColor(Color.parseColor("#18382F"))
+        obat.textSize = 13f
+        obat.setTypeface(null, android.graphics.Typeface.BOLD)
+
+        val dosis = TextView(this)
+        dosis.layoutParams = LinearLayout.LayoutParams(
+            dpToPx(64),
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        dosis.gravity = Gravity.CENTER
+        dosis.text = resep.dosis
+        dosis.setTextColor(Color.parseColor("#18382F"))
+        dosis.textSize = 12f
+        dosis.setTypeface(null, android.graphics.Typeface.BOLD)
+
+        val aturan = TextView(this)
+        aturan.layoutParams = LinearLayout.LayoutParams(
+            dpToPx(86),
+            dpToPx(32)
+        )
+        aturan.setBackgroundResource(R.drawable.bg_status_grey)
+        aturan.gravity = Gravity.CENTER
+        aturan.text = resep.aturan_pakai.replace(" ", "\n")
+        aturan.setTextColor(Color.parseColor("#444444"))
+        aturan.textSize = 10f
+        aturan.setTypeface(null, android.graphics.Typeface.BOLD)
+
+        card.addView(icon)
+        card.addView(obat)
+        card.addView(dosis)
+        card.addView(aturan)
+
+        layoutDetailResep.addView(card)
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
     }
 }
