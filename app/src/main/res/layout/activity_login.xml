@@ -16,11 +16,11 @@
         android:orientation="vertical"
         android:background="@drawable/bg_login_card"
         android:padding="24dp"
-        android:elevation="4dp"> <ImageView
+        android:elevation="4dp">
+        <ImageView
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:src="@mipmap/ic_launcher"
-        android:background="@drawable/bg_header_login"
+        android:background="@drawable/header"
         android:padding="30dp"
         android:scaleType="centerInside" />
 
