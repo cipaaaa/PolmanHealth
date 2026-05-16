@@ -67,6 +67,8 @@ class LoginActivity : AppCompatActivity() {
                             .putInt("id_pasien", pasien.id_pasien)
                             .putString("nama_pasien", pasien.nama_pasien)
                             .putString("email", pasien.email)
+                            .putString("no_telp", pasien.no_telp ?: "-")
+                            .putString("alamat", pasien.alamat ?: "-")
                             .apply()
 
                         Toast.makeText(
@@ -79,6 +81,13 @@ class LoginActivity : AppCompatActivity() {
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                         finish()
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out)
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Email dan/atau password salah",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
@@ -111,10 +120,11 @@ class LoginActivity : AppCompatActivity() {
                         intent.putExtra("role", response.body()!!.role)
                         startActivity(intent)
                         finish()
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out)
                     } else {
                         Toast.makeText(
                             this@LoginActivity,
-                            "Email atau password admin salah",
+                            "Email dan/atau password admin salah",
                             Toast.LENGTH_SHORT
                         ).show()
                     }

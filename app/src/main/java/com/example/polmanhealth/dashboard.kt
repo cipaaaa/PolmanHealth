@@ -57,20 +57,34 @@ class dashboard : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.navJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java))
+            pindahHalaman(Intent(this, jadwal::class.java), 1)
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
-            startActivity(Intent(this, FormAntreanActivity::class.java))
+            pindahHalaman(Intent(this, FormAntreanActivity::class.java), 2)
         }
 
         findViewById<TextView>(R.id.navRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java))
+            pindahHalaman(Intent(this, riwayat::class.java), 3)
         }
 
         findViewById<TextView>(R.id.navProfil).setOnClickListener {
-            startActivity(Intent(this, ProfileActivity::class.java))
+            pindahHalaman(Intent(this, ProfileActivity::class.java), 4)
         }
+    }
+
+    private fun pindahHalaman(intent: Intent, targetIndex: Int) {
+        val currentIndex = 0 // dashboard / Beranda
+
+        startActivity(intent)
+
+        if (targetIndex > currentIndex) {
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        } else {
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+
+        finish()
     }
 
     override fun onResume() {

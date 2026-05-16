@@ -2,7 +2,10 @@ package com.example.polmanhealth
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -15,13 +18,31 @@ import retrofit2.Response
 
 class daftar_pasien : AppCompatActivity() {
 
+    private lateinit var etCariPasien: EditText
     private lateinit var layoutDaftarPasien: LinearLayout
+
+    private var semuaAntrean: List<AdminAntreanResponse> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daftar_pasien)
 
+        etCariPasien = findViewById(R.id.etCariPasien)
         layoutDaftarPasien = findViewById(R.id.layoutDaftarPasien)
+
+        etCariPasien.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterPasien(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
         loadDaftarAntrean()
     }
 
@@ -34,14 +55,13 @@ class daftar_pasien : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         val dataAntrean = response.body()!!
-                        layoutDaftarPasien.removeAllViews()
+                        semuaAntrean = dataAntrean
 
-                        if (dataAntrean.isEmpty()) {
-                            tampilkanKosong()
+                        val keyword = etCariPasien.text.toString()
+                        if (keyword.isEmpty()) {
+                            tampilkanDaftar(dataAntrean)
                         } else {
-                            dataAntrean.forEach { antrean ->
-                                tambahCardPasien(antrean)
-                            }
+                            filterPasien(keyword)
                         }
                     } else {
                         Toast.makeText(
@@ -60,6 +80,28 @@ class daftar_pasien : AppCompatActivity() {
                     ).show()
                 }
             })
+    }
+
+    private fun filterPasien(keyword: String) {
+        val hasilFilter = semuaAntrean.filter {
+            it.nama_pasien.contains(keyword, ignoreCase = true) ||
+                    it.spesialis.contains(keyword, ignoreCase = true) ||
+                    it.nama_dokter.contains(keyword, ignoreCase = true)
+        }
+
+        tampilkanDaftar(hasilFilter)
+    }
+
+    private fun tampilkanDaftar(dataAntrean: List<AdminAntreanResponse>) {
+        layoutDaftarPasien.removeAllViews()
+
+        if (dataAntrean.isEmpty()) {
+            tampilkanKosong()
+        } else {
+            dataAntrean.forEach { antrean ->
+                tambahCardPasien(antrean)
+            }
+        }
     }
 
     private fun tambahCardPasien(antrean: AdminAntreanResponse) {
@@ -138,7 +180,7 @@ class daftar_pasien : AppCompatActivity() {
             topMargin = dpToPx(20)
         }
 
-        textKosong.text = "Belum ada antrean pasien"
+        textKosong.text = "Pasien tidak ditemukan"
         textKosong.gravity = Gravity.CENTER
         textKosong.setTextColor(android.graphics.Color.parseColor("#7A9389"))
         textKosong.textSize = 15f

@@ -6,6 +6,10 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.polmanhealth.api.RetrofitClient
+import com.example.polmanhealth.model.DetailResepRequest
+import com.example.polmanhealth.model.DetailResepResponse
+import com.example.polmanhealth.model.ObatRequest
+import com.example.polmanhealth.model.ObatResponse
 import com.example.polmanhealth.model.RekamMedisRequest
 import com.example.polmanhealth.model.RekamMedisResponse
 import retrofit2.Call
@@ -13,22 +17,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import com.example.polmanhealth.model.ObatRequest
-import com.example.polmanhealth.model.ObatResponse
-import com.example.polmanhealth.model.DetailResepRequest
-import com.example.polmanhealth.model.DetailResepResponse
 
 class InputDiagnosaActivity : AppCompatActivity() {
 
     private lateinit var edtDiagnosa: EditText
     private lateinit var edtKodeIcd: EditText
     private lateinit var edtCatatanDiagnosa: EditText
-
     private lateinit var edtNamaObat: EditText
     private lateinit var edtJenisObat: EditText
     private lateinit var edtFrekuensi: EditText
     private lateinit var edtLamaMinum: EditText
-
     private lateinit var btnSesudahMakan: TextView
     private lateinit var btnSebelumMakan: TextView
     private lateinit var btnTambahObat: TextView
@@ -46,8 +44,8 @@ class InputDiagnosaActivity : AppCompatActivity() {
         val jumlah: Int,
         val keterangan: String?
     )
-    private var aturanMinumTerpilih = "Sesudah Makan"
 
+    private var aturanMinumTerpilih = "Sesudah Makan"
     private var idPendaftaran: Int = 0
     private var namaPasien: String = ""
     private var nomorAntrean: String = ""
@@ -64,18 +62,13 @@ class InputDiagnosaActivity : AppCompatActivity() {
         spesialis = intent.getStringExtra("spesialis") ?: "-"
         namaDokter = intent.getStringExtra("nama_dokter") ?: "-"
 
-        val tvNamaPasien = findViewById<TextView>(R.id.tvNamaPasien)
-        val tvNomorAntrean = findViewById<TextView>(R.id.tvNomorAntrean)
-        val tvPoliDokter = findViewById<TextView>(R.id.tvPoliDokter)
-
-        tvNamaPasien.text = namaPasien
-        tvNomorAntrean.text = "Antrean: $nomorAntrean"
-        tvPoliDokter.text = "$spesialis - $namaDokter"
+        findViewById<TextView>(R.id.tvNamaPasien).text = namaPasien
+        findViewById<TextView>(R.id.tvNomorAntrean).text = "Antrean: $nomorAntrean"
+        findViewById<TextView>(R.id.tvPoliDokter).text = "$spesialis - $namaDokter"
 
         edtDiagnosa = findViewById(R.id.edtDiagnosa)
         edtKodeIcd = findViewById(R.id.edtKodeIcd)
         edtCatatanDiagnosa = findViewById(R.id.edtCatatanDiagnosa)
-
         edtNamaObat = findViewById(R.id.edtNamaObat)
         edtJenisObat = findViewById(R.id.edtJenisObat)
         edtFrekuensi = findViewById(R.id.edtFrekuensi)
@@ -108,14 +101,9 @@ class InputDiagnosaActivity : AppCompatActivity() {
             simpanRekamMedis()
         }
 
-        findViewById<TextView>(R.id.btnBack).setOnClickListener {
-            finish()
-        }
     }
 
     private fun simpanRekamMedis() {
-
-
         val diagnosa = edtDiagnosa.text.toString().trim()
         val kodeIcd = edtKodeIcd.text.toString().trim()
         val catatan = edtCatatanDiagnosa.text.toString().trim()
@@ -135,8 +123,7 @@ class InputDiagnosaActivity : AppCompatActivity() {
             return
         }
 
-        val tanggalHariIni = SimpleDateFormat("yyyy-MM-dd", Locale("id", "ID"))
-            .format(Date())
+        val tanggalHariIni = SimpleDateFormat("yyyy-MM-dd", Locale("id", "ID")).format(Date())
 
         val request = RekamMedisRequest(
             id_pendaftaran = idPendaftaran,
@@ -155,7 +142,6 @@ class InputDiagnosaActivity : AppCompatActivity() {
                     if (response.isSuccessful && response.body() != null) {
                         val idRekamMedis = response.body()!!.id_rekam_medis
                         simpanDetailResep(idRekamMedis)
-
                     } else {
                         val errorBody = response.errorBody()?.string()
                         println("ERROR SIMPAN REKAM MEDIS: $errorBody")
@@ -182,7 +168,6 @@ class InputDiagnosaActivity : AppCompatActivity() {
         var jumlahBerhasil = 0
 
         listObat.forEach { obatInput ->
-
             val obatRequest = ObatRequest(
                 nama_obat = obatInput.namaObat,
                 jenis_obat = obatInput.jenisObat,
@@ -191,14 +176,11 @@ class InputDiagnosaActivity : AppCompatActivity() {
 
             RetrofitClient.instance.getOrCreateObat(obatRequest)
                 .enqueue(object : Callback<ObatResponse> {
-
                     override fun onResponse(
                         call: Call<ObatResponse>,
                         response: Response<ObatResponse>
                     ) {
-
                         if (response.isSuccessful && response.body() != null) {
-
                             val obat = response.body()!!
 
                             val detailRequest = DetailResepRequest(
@@ -212,29 +194,17 @@ class InputDiagnosaActivity : AppCompatActivity() {
 
                             RetrofitClient.instance.createDetailResep(detailRequest)
                                 .enqueue(object : Callback<DetailResepResponse> {
-
                                     override fun onResponse(
                                         call: Call<DetailResepResponse>,
                                         response: Response<DetailResepResponse>
                                     ) {
-
                                         if (response.isSuccessful) {
-
                                             jumlahBerhasil++
 
                                             if (jumlahBerhasil == listObat.size) {
-
-                                                Toast.makeText(
-                                                    this@InputDiagnosaActivity,
-                                                    "Diagnosa dan resep berhasil disimpan",
-                                                    Toast.LENGTH_SHORT
-                                                ).show()
-
-                                                finish()
+                                                updateStatusPendaftaran()
                                             }
-
                                         } else {
-
                                             Toast.makeText(
                                                 this@InputDiagnosaActivity,
                                                 "Gagal menyimpan detail resep",
@@ -247,7 +217,6 @@ class InputDiagnosaActivity : AppCompatActivity() {
                                         call: Call<DetailResepResponse>,
                                         t: Throwable
                                     ) {
-
                                         Toast.makeText(
                                             this@InputDiagnosaActivity,
                                             "Gagal terhubung saat simpan resep",
@@ -255,9 +224,7 @@ class InputDiagnosaActivity : AppCompatActivity() {
                                         ).show()
                                     }
                                 })
-
                         } else {
-
                             Toast.makeText(
                                 this@InputDiagnosaActivity,
                                 "Gagal mengambil data obat",
@@ -266,11 +233,7 @@ class InputDiagnosaActivity : AppCompatActivity() {
                         }
                     }
 
-                    override fun onFailure(
-                        call: Call<ObatResponse>,
-                        t: Throwable
-                    ) {
-
+                    override fun onFailure(call: Call<ObatResponse>, t: Throwable) {
                         Toast.makeText(
                             this@InputDiagnosaActivity,
                             "Gagal terhubung ke server",
@@ -279,6 +242,44 @@ class InputDiagnosaActivity : AppCompatActivity() {
                     }
                 })
         }
+    }
+
+    private fun updateStatusPendaftaran() {
+        RetrofitClient.instance.updateStatusPendaftaran(idPendaftaran, "Selesai")
+            .enqueue(object : Callback<Map<String, String>> {
+                override fun onResponse(
+                    call: Call<Map<String, String>>,
+                    response: Response<Map<String, String>>
+                ) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(
+                            this@InputDiagnosaActivity,
+                            "Diagnosa dan resep berhasil disimpan",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            this@InputDiagnosaActivity,
+                            "Resep tersimpan, tapi status antrean gagal diubah",
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        finish()
+                    }
+                }
+
+                override fun onFailure(call: Call<Map<String, String>>, t: Throwable) {
+                    Toast.makeText(
+                        this@InputDiagnosaActivity,
+                        "Resep tersimpan, tapi gagal update status",
+                        Toast.LENGTH_LONG
+                    ).show()
+
+                    finish()
+                }
+            })
     }
 
     private fun tambahObat() {
@@ -293,6 +294,7 @@ class InputDiagnosaActivity : AppCompatActivity() {
         }
 
         val aturanLengkap = "$frekuensi, $lamaMinum"
+
         val dataObat = ObatInput(
             namaObat = namaObat,
             jenisObat = jenisObat,
@@ -303,7 +305,6 @@ class InputDiagnosaActivity : AppCompatActivity() {
         )
 
         listObat.add(dataObat)
-
         tvKosongObat.visibility = View.GONE
 
         val cardObat = TextView(this)

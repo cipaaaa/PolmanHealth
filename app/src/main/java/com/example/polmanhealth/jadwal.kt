@@ -38,23 +38,23 @@ class jadwal : AppCompatActivity() {
         setContentView(R.layout.activity_jadwal)
 
         findViewById<TextView>(R.id.navHome).setOnClickListener {
-            startActivity(Intent(this, dashboard::class.java))
-            finish()
+            pindahHalaman(Intent(this, dashboard::class.java), 0)
         }
 
         findViewById<TextView>(R.id.navJadwal).setOnClickListener {
-            startActivity(Intent(this, jadwal::class.java))
-            finish()
+            // Sudah di Jadwal
         }
 
         findViewById<TextView>(R.id.navAntrean).setOnClickListener {
-            startActivity(Intent(this, FormAntreanActivity::class.java))
-            finish()
+            pindahHalaman(Intent(this, FormAntreanActivity::class.java), 2)
         }
 
         findViewById<TextView>(R.id.navRiwayat).setOnClickListener {
-            startActivity(Intent(this, riwayat::class.java))
-            finish()
+            pindahHalaman(Intent(this, riwayat::class.java), 3)
+        }
+
+        findViewById<TextView>(R.id.navProfil).setOnClickListener {
+            pindahHalaman(Intent(this, ProfileActivity::class.java), 4)
         }
 
         btnSenin = findViewById(R.id.btnSenin)
@@ -108,6 +108,20 @@ class jadwal : AppCompatActivity() {
         btnJumat.setOnClickListener { pilihHari(btnJumat, "Jumat") }
 
         pilihHari(btnSenin, "Senin")
+    }
+
+    private fun pindahHalaman(intent: Intent, targetIndex: Int) {
+        val currentIndex = 1 // Jadwal
+
+        startActivity(intent)
+
+        if (targetIndex > currentIndex) {
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        } else {
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        }
+
+        finish()
     }
 
     private fun loadJadwalDokter(hari: String) {

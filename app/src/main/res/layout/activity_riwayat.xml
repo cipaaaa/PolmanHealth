@@ -33,96 +33,32 @@
         android:paddingBottom="18dp">
 
         <LinearLayout
+            android:id="@+id/layoutRiwayatMedis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingTop="18dp"
-            android:paddingBottom="24dp">
-
-            <LinearLayout
-                android:id="@+id/cardRiwayat1"
-                android:layout_width="match_parent"
-                android:layout_height="145dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/bg_card_strong"
-                android:elevation="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="18dp">
-
-                <TextView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:background="@drawable/bg_icon_green_light"
-                    android:gravity="center"
-                    android:text="🩺"
-                    android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvJudulRiwayat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Belum ada riwayat pemeriksaan"
-                        android:textColor="#18382F"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvSubRiwayat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:textColor="#7A9389"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="3dp" />
-
-                    <TextView
-                        android:id="@+id/tvTanggalRiwayat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:textColor="#346C57"
-                        android:textSize="13sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/btnLihat1"
-                    android:layout_width="70dp"
-                    android:layout_height="34dp"
-                    android:background="@drawable/bg_status_green"
-                    android:gravity="center"
-                    android:text="Lihat"
-                    android:textColor="#08785B"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-
-        </LinearLayout>
+            android:paddingBottom="24dp" />
     </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="96dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/navHome"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="6dp"
             android:text="🏠\nBeranda"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
@@ -130,9 +66,10 @@
         <TextView
             android:id="@+id/navJadwal"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="6dp"
             android:text="📅\nJadwal"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
@@ -140,32 +77,34 @@
         <TextView
             android:id="@+id/navAntrean"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_nav_circle"
             android:gravity="center"
-            android:text="#012\nAntrean"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:padding="6dp"
+            android:text="🎫\nAntrean"
+            android:textColor="#A9C9BD"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/navRiwayat"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
+            android:background="@drawable/bg_nav_active"
             android:gravity="center"
+            android:padding="6dp"
             android:text="📁\nRiwayat"
             android:textColor="#168B68"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/navProfil"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="6dp"
             android:text="👤\nProfil"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />

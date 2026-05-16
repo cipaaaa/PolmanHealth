@@ -17,6 +17,8 @@ import com.example.polmanhealth.model.ObatResponse
 import com.example.polmanhealth.model.DetailResepRequest
 import com.example.polmanhealth.model.DetailResepResponse
 import com.example.polmanhealth.model.DetailResepObatResponse
+import retrofit2.http.PUT
+import com.example.polmanhealth.model.PasienUpdateRequest
 
 import retrofit2.Call
 import retrofit2.http.Body
@@ -92,5 +94,20 @@ interface ApiService {
     fun getDetailResepByRekamMedis(
         @Path("id_rekam_medis") idRekamMedis: Int
     ): Call<List<DetailResepObatResponse>>
+
+    @GET("obat")
+    fun getAllObat(): Call<List<ObatResponse>>
+
+    @PUT("pendaftaran/{id_pendaftaran}/status")
+    fun updateStatusPendaftaran(
+        @Path("id_pendaftaran") idPendaftaran: Int,
+        @Query("status") status: String
+    ): Call<Map<String, String>>
+
+    @PUT("pasien/{id_pasien}")
+    fun updatePasien(
+        @Path("id_pasien") idPasien: Int,
+        @Body request: PasienUpdateRequest
+    ): Call<PasienResponse>
 
 }

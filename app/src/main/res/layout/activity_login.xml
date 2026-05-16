@@ -16,13 +16,15 @@
         android:orientation="vertical"
         android:background="@drawable/bg_login_card"
         android:padding="24dp"
-        android:elevation="4dp"> <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:src="@mipmap/ic_launcher"
-        android:background="@drawable/bg_header_login"
-        android:padding="30dp"
-        android:scaleType="centerInside" />
+        android:elevation="4dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@drawable/bg_header_login"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/logo_polmanhealth" />
 
         <TextView
             android:layout_width="wrap_content"

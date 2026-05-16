@@ -1,10 +1,11 @@
 package com.example.polmanhealth.model
 
 data class LoginResponse(
-    val message: String,
     val id_pasien: Int,
     val nama_pasien: String,
-    val email: String
+    val email: String,
+    val no_telp: String?,
+    val alamat: String?
 )
 
 data class AdminLoginResponse(

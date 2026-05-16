@@ -441,17 +441,22 @@
     <!-- BOTTOM BAR -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="96dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/navHome"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="6dp"
             android:text="🏠\nBeranda"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
@@ -459,32 +464,34 @@
         <TextView
             android:id="@+id/navJadwal"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
+            android:background="@drawable/bg_nav_active"
             android:gravity="center"
+            android:padding="6dp"
             android:text="📅\nJadwal"
             android:textColor="#168B68"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/navAntrean"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_nav_circle"
             android:gravity="center"
-            android:text="#012\nAntrean"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:padding="6dp"
+            android:text="🎫\nAntrean"
+            android:textColor="#A9C9BD"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/navRiwayat"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="68dp"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="6dp"
             android:text="📁\nRiwayat"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
@@ -492,13 +499,13 @@
         <TextView
             android:id="@+id/navProfil"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
+            android:layout_height="68dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:padding="6dp"
             android:text="👤\nProfil"
             android:textColor="#A9C9BD"
             android:textSize="12sp" />
-
     </LinearLayout>
 
 </LinearLayout>
